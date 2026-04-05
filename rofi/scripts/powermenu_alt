@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+rofi_command="rofi -theme $HOME/.config/rofi/themes/nord.rasi"
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+# Options
+shutdown=" Shutdown"
+reboot=" Restart"
+lock=" Lock"
+logout=" Logout"
+#suspend=" Sleep"
+
+# Variable passed to rofi
+options="$lock\n$logout\n$reboot\n$shutdown"
+
+chosen="$(echo -e "$options" | $rofi_command -p "Ikari" -dmenu -selected-row 0)"
+case $chosen in
+    $shutdown)
+        systemctl poweroff
+        ;;
+    $reboot)
+        systemctl reboot
+        ;;
+    $lock)
+        i3lock
+        ;;
+    $logout)
+        bspc quit
+        ;;
+esac
+

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+#/home/ikari/.config/bspwm/set-moni.sh
+
+
+# Configuracion de monitores y Escritorios
+bspc monitor eDP -d 1 2 3 4
+#"bspc monitor HDMI-2 -d 5 6 7 8
+
+bspc config border_width			4
+bspc config window_gap				6
+
+bspc config split_ratio				0.5
+bspc config single_monocle			false
+bspc config focus_follows_pointer	true
+bspc config borderless_monocle		true
+bspc config gapless_monocle			true
+
+bspc config focused_border_color	"#83A598"
+bspc config normal_border_color		"#282A36"
+bspc config active_border_color		"#8BE9FD"
+bspc config presel_feedback_color	"#50FA7B"
+
+
+#autostart
+thunar --daemon &
+~/.config/polybar/panels/launch.sh
+#~/.config/polybar/nordic/launch.sh
+feh --bg-scale --randomize /home/ikari/Imágenes/Fondos/* &
+#feh --bg-scale /home/ikari/Imágenes/Fondos/uno.jpg &
+#/usr/bin/lxpolkit &
+xsetroot -cursor_name left_ptr &
+/home/ikari/.config/dunst/dunstrc &
