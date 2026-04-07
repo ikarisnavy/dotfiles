@@ -2,12 +2,9 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-#/home/ikari/.config/bspwm/set-moni.sh
-
 
 # Configuracion de monitores y Escritorios
 bspc monitor eDP -d 1 2 3 4
-#"bspc monitor HDMI-2 -d 5 6 7 8
 
 bspc config border_width			4
 bspc config window_gap				6
@@ -26,10 +23,7 @@ bspc config presel_feedback_color	"#50FA7B"
 
 #autostart
 thunar --daemon &
-~/.config/polybar/panels/launch.sh
-#~/.config/polybar/nordic/launch.sh
+~/.config/polybar/launch.sh
 feh --bg-scale --randomize /home/ikari/Imágenes/Fondos/* &
-#feh --bg-scale /home/ikari/Imágenes/Fondos/uno.jpg &
-#/usr/bin/lxpolkit &
 xsetroot -cursor_name left_ptr &
 /home/ikari/.config/dunst/dunstrc &
